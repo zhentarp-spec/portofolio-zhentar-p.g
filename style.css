@@ -1,699 +1,522 @@
-/* =========================
-   RESET & VARIABEL
-========================= */
+/* ============================================
+   RESET & DASAR
+   ============================================ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
 }
 
-:root {
-    --bg: #0d0d0d;
-    --bg-soft: #141414;
-    --bg-elev: #1a1a1a;
-    --surface: #171717;
-    --surface-2: #1f1f1f;
-    --border: #2a2a2a;
-    --border-strong: #3a3a3a;
-    --text: #f2f2f2;
-    --text-soft: #c7c7c7;
-    --text-muted: #8a8a8a;
-    --text-dim: #5c5c5c;
-    --white: #ffffff;
-    --radius-sm: 8px;
-    --radius: 12px;
-    --radius-lg: 16px;
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
-    --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.6);
-    --transition: 0.22s ease;
+html {
+    scroll-behavior: smooth;
 }
-
-/* =========================
-   BODY
-========================= */
-html { scroll-behavior: smooth; }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    background: var(--bg);
-    background-image:
-        radial-gradient(800px 400px at 50% -10%, rgba(255, 255, 255, 0.05), transparent 70%);
-    background-attachment: fixed;
-    color: var(--text);
+    background-color: #000000;
+    color: #e5e5e5;
     min-height: 100vh;
-    padding: 32px 20px 60px;
-    text-align: center;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    /* Gradasi abu elegan di tengah */
+    background-image: radial-gradient(circle at 65% 30%, #2a2a2a 0%, #0a0a0a 45%, #000000 80%);
+    background-attachment: fixed;
+    line-height: 1.6;
 }
 
-/* =========================
-   NAVIGASI
-========================= */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ============================================
+   HEADER / NAVBAR
+   ============================================ */
 .site-header {
-    position: sticky;
-    top: 16px;
-    z-index: 100;
-    width: min(1100px, 100%);
-    margin: 0 auto 48px;
-    padding: 10px 10px 10px 22px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 20px;
-    background: rgba(20, 20, 20, 0.85);
-    backdrop-filter: blur(16px) saturate(140%);
-    -webkit-backdrop-filter: blur(16px) saturate(140%);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    box-shadow: var(--shadow);
-    text-align: left;
+    align-items: center;
+    padding: 2rem 6%;
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(14px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .site-brand {
-    color: var(--white);
-    text-decoration: none;
-    font-size: 17px;
-    font-weight: 800;
-    letter-spacing: 3px;
-    white-space: nowrap;
-    transition: var(--transition);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
 }
 
-.site-brand span { color: var(--text-muted); }
-
-.site-brand:hover { opacity: 0.8; }
+.site-brand span {
+    color: #bfbfbf;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+}
 
 .site-nav {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 2px;
+    gap: 2rem;
 }
 
 .site-nav a {
-    padding: 9px 16px;
-    color: var(--text-muted);
-    border-radius: 999px;
-    text-decoration: none;
-    font-size: 13.5px;
+    color: #8c8c8c;
+    font-size: 0.9rem;
     font-weight: 500;
-    letter-spacing: 0.2px;
-    transition: var(--transition);
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
 }
 
-.site-nav a:hover {
-    color: var(--white);
-    background: var(--surface-2);
-}
-
+.site-nav a:hover,
 .site-nav a[aria-current="page"] {
-    color: var(--bg);
-    background: var(--white);
-    font-weight: 600;
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
 
-.site-nav a:focus-visible,
-.site-brand:focus-visible {
-    outline: 2px solid var(--white);
-    outline-offset: 2px;
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    padding: 5rem 8%;
+    min-height: 70vh;
+    flex-wrap: wrap;
 }
 
-/* =========================
-   TIPOGRAFI
-========================= */
-h1 {
-    font-size: clamp(30px, 4.5vw, 46px);
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 550px;
+}
+
+.greeting {
+    font-size: 1.1rem;
+    color: #b3b3b3;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
     font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    margin-bottom: 16px;
-    color: var(--white);
+    color: #ffffff;
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
 }
-
-h2 {
-    font-size: clamp(20px, 2.6vw, 26px);
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    margin-bottom: 12px;
-    color: var(--white);
-}
-
-h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--white);
-}
-
-h4 {
-    font-size: 19px;
-    font-weight: 600;
-    margin-bottom: 14px;
-    color: var(--text);
-}
-
-h5 {
-    font-size: 14.5px;
-    font-weight: 400;
-    line-height: 1.7;
-    margin: 12px auto;
-    max-width: 620px;
-    color: var(--text-soft);
-}
-
-p {
-    max-width: 720px;
-    margin: 14px auto;
-    padding: 0;
-    background: none;
-    border: 0;
-    line-height: 1.75;
-    font-size: 15.5px;
-    color: var(--text-soft);
-    box-shadow: none;
-}
-
-strong { color: var(--white); font-weight: 600; }
-em { color: var(--text-soft); font-style: italic; }
 
 .highlight {
-    color: var(--white);
-    font-weight: 700;
-    border-bottom: 2px solid var(--white);
-    padding-bottom: 2px;
+    color: #ffffff;
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.9),
+        0 0 30px rgba(200, 200, 200, 0.6),
+        0 0 60px rgba(150, 150, 150, 0.4);
 }
 
-/* =========================
+.description {
+    color: #8c8c8c;
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+/* ============================================
    TOMBOL
-========================= */
-button {
-    border: 1px solid var(--white);
-    background: var(--white);
-    color: var(--bg);
-    padding: 12px 24px;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.3px;
-    transition: var(--transition);
-}
-
-button:hover {
-    background: transparent;
-    color: var(--white);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
-}
-
-button a {
-    color: inherit;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-/* =========================
-   GAMBAR
-========================= */
-img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: var(--radius);
-    border: 1px solid var(--border-strong);
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    filter: grayscale(100%) contrast(1.05);
-}
-
-img:hover {
-    filter: grayscale(0%);
-    border-color: var(--white);
-    transform: translateY(-2px);
-}
-
-.profile-photo {
-    width: 220px;
-    height: 220px;
-    margin: 8px auto 0;
-    border-radius: 50%;
-    filter: grayscale(100%) contrast(1.05);
-    border: 2px solid var(--border-strong);
-    box-shadow: var(--shadow-lg);
-}
-
-.profile-photo:hover { filter: grayscale(0%); }
-
-/* =========================
-   KOMPONEN
-========================= */
-.card {
-    margin: 24px 0;
-    padding: 32px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    text-align: left;
-}
-
-.card:hover {
-    border-color: var(--border-strong);
-    background: var(--surface-2);
-}
-
-.card h2,
-.card > h3 {
-    text-align: center;
-}
-
+   ============================================ */
 .btn {
     display: inline-block;
-    padding: 12px 22px;
-    color: var(--bg);
-    background: var(--white);
-    border: 1px solid var(--white);
-    border-radius: var(--radius-sm);
+    padding: 12px 30px;
+    border: 1px solid #d9d9d9;
+    color: #f0f0f0;
+    border-radius: 6px;
     font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.3px;
-    text-decoration: none;
-    transition: var(--transition);
+    letter-spacing: 1.5px;
+    transition: 0.35s ease;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    position: relative;
 }
 
 .btn:hover {
-    background: transparent;
-    color: var(--white);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
+    background: #ffffff;
+    color: #000000;
+    box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.9),
+        0 0 40px rgba(200, 200, 200, 0.6),
+        0 0 80px rgba(150, 150, 150, 0.3);
+    transform: translateY(-2px);
 }
 
-.btn:focus-visible {
-    outline: 2px solid var(--white);
-    outline-offset: 3px;
-}
-
-.cta {
-    margin: 28px 0;
-    padding: 40px 24px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    text-align: center;
-}
-
-.cta h2 { margin-bottom: 20px; }
-
-/* =========================
-   STRUKTUR HALAMAN
-========================= */
-.social-page main,
-.home-page main,
-.activities-page main {
-    width: min(1100px, 100%);
-    margin: 0 auto;
-}
-
-.social-page .hero,
-.home-page .hero,
-.activities-page .activities-hero {
-    margin: 0 auto 36px;
-    padding: 52px 28px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-}
-
-.social-page .subtitle,
-.home-page .subtitle,
-.activities-page .activities-intro {
-    margin: 0 auto;
-    padding: 0;
-    background: none;
-    border: 0;
-    box-shadow: none;
-    color: var(--text-muted);
-    font-size: 15.5px;
-}
-
-/* =========================
-   SOSIAL MEDIA
-========================= */
-.social-page .sosmed-grid,
-.social-page .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-    margin-top: 22px;
-}
-
-.social-page .sosmed-card {
+/* ============================================
+   HERO VISUAL (FOTO + IKON MELAYANG)
+   ============================================ */
+.hero-visual {
+    position: relative;
+    width: 380px;
+    height: 380px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 26px 20px;
-    background: var(--bg-elev);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: var(--transition);
-}
-
-.social-page .sosmed-card:hover {
-    background: var(--surface-2);
-    border-color: var(--border-strong);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
-}
-
-.social-page .sosmed-icon {
-    margin-bottom: 10px;
-    font-size: 30px;
-    filter: grayscale(100%);
-}
-
-.social-page .sosmed-card h3 {
-    margin-bottom: 6px;
-    font-size: 17px;
-}
-
-.social-page .sosmed-card p {
-    flex: 1;
-    margin: 0 0 16px;
-    padding: 0;
-    background: none;
-    border: 0;
-    box-shadow: none;
-    font-size: 13.5px;
-    color: var(--text-muted);
-}
-
-.social-page .gallery img {
-    width: 100%;
-    height: 320px;
-    border-radius: var(--radius);
-    filter: grayscale(100%) contrast(1.05);
-}
-
-.social-page .gallery img:hover { filter: grayscale(0%); }
-
-/* =========================
-   BERANDA
-========================= */
-.home-page .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.home-page .hero h1 { margin-bottom: 8px; }
-
-.home-page .profile-photo {
-    width: 220px;
-    height: 220px;
-    margin: 20px auto 24px;
-    object-position: center 38%;
-}
-
-.home-page .gallery {
-    display: grid;
-    grid-template-columns: minmax(0, 620px);
     justify-content: center;
-    gap: 16px;
-    margin-top: 22px;
+    align-items: center;
+    flex-shrink: 0;
 }
 
-.home-page .gallery img {
+.profile-glow {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ffffff;
+    box-shadow:
+        0 0 20px rgba(255, 255, 255, 0.8),
+        0 0 50px rgba(200, 200, 200, 0.5),
+        0 0 100px rgba(150, 150, 150, 0.3),
+        0 0 150px rgba(100, 100, 100, 0.15);
+    z-index: 2;
+    animation: float 4s ease-in-out infinite;
+}
+
+.profile-glow img {
     width: 100%;
-    height: 350px;
-    border-radius: var(--radius);
-    filter: grayscale(100%) contrast(1.05);
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(15%) contrast(105%);
 }
 
-.home-page .gallery img:hover { filter: grayscale(0%); }
+/* Ikon teknologi melayang */
+.tech-icon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    width: 50px;
+    height: 50px;
+    animation: float 3s ease-in-out infinite;
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.4),
+        inset 0 0 8px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+    transition: 0.3s;
+}
 
-.home-page .grid-2 {
+.tech-icon:hover {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+}
+
+.tech-icon.html { top: 8%;  left: 12%; animation-delay: 0.5s; }
+.tech-icon.css  { top: 45%; left: 0%;  animation-delay: 1.5s; }
+.tech-icon.js   { top: 5%;  right: 18%; animation-delay: 0s; }
+.tech-icon.react{ bottom: 15%; right: 5%;  animation-delay: 1s; }
+.tech-icon.node { bottom: 10%; left: 25%; animation-delay: 2s; }
+.tech-icon.figma{ bottom: 0%;  right: 40%; animation-delay: 0.8s; }
+
+@keyframes float {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ============================================
+   CARD / KONTEN
+   ============================================ */
+.card {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin: 2rem 8%;
+    backdrop-filter: blur(10px);
+    transition: 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    opacity: 0.5;
+}
+
+.card:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow:
+        0 0 30px rgba(255, 255, 255, 0.08),
+        0 0 60px rgba(150, 150, 150, 0.05);
+    transform: translateY(-3px);
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #e0e0e0;
+    letter-spacing: 0.3px;
+}
+
+.card p {
+    color: #a6a6a6;
+    margin-bottom: 1rem;
+}
+
+.card strong { color: #ffffff; }
+.card em { color: #d9d9d9; font-style: italic; }
+
+/* Grid 2 kolom */
+.grid-2 {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    margin-top: 22px;
-}
-
-.home-page .grid-2 > div {
-    padding: 22px;
-    background: var(--bg-elev);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: var(--transition);
-    text-align: left;
-}
-
-.home-page .grid-2 > div:hover {
-    background: var(--surface-2);
-    border-color: var(--border-strong);
-}
-
-.home-page .grid-2 h3 {
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--text-muted);
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.home-page .grid-2 p {
-    margin: 0;
-    padding: 0;
-    background: none;
-    border: 0;
-    box-shadow: none;
-    font-size: 14.5px;
-    color: var(--text-soft);
-    text-align: left;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 /* Data Diri */
 .data-diri {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 14px;
-    margin-top: 8px;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .data-item {
     display: flex;
-    flex-direction: column;
-    padding: 18px 20px;
-    background: var(--bg-elev);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--white);
-    border-radius: var(--radius-sm);
-    transition: var(--transition);
-    text-align: left;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid #bfbfbf;
+    border-radius: 8px;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    transition: 0.3s;
 }
 
 .data-item:hover {
-    background: var(--surface-2);
-    transform: translateX(3px);
+    background: rgba(255, 255, 255, 0.06);
+    border-left-color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
 }
 
 .data-item .label {
-    font-size: 11px;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
-    margin-bottom: 6px;
+    color: #8c8c8c;
+    font-size: 0.9rem;
 }
 
 .data-item .value {
-    font-size: 15.5px;
+    color: #ffffff;
     font-weight: 600;
-    color: var(--white);
 }
 
-/* =========================
-   KEGIATAN
-========================= */
-.activities-page .activities-eyebrow {
-    display: inline-block;
-    margin: 0 auto 14px;
-    padding: 5px 14px;
-    background: transparent;
-    border: 1px solid var(--border-strong);
-    border-radius: 999px;
-    color: var(--text-muted);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-.activities-page .activities-hero h1 { text-transform: none; }
-
-.activities-page .activities-card,
-.activities-page .activities-note {
-    margin: 24px 0;
-    padding: 32px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    text-align: left;
-}
-
-.activities-page .activities-card h2,
-.activities-page .activities-note h2 { text-align: center; }
-
-.activities-page .routine-grid {
+/* Gallery */
+.gallery {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
-.activities-page .routine-item {
-    padding: 26px 22px;
-    background: var(--bg-elev);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: var(--transition);
+.gallery img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: 0.4s ease;
+    filter: grayscale(40%) contrast(105%);
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+    border-color: #ffffff;
+    filter: grayscale(0%) contrast(110%);
+    box-shadow:
+        0 0 25px rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(180, 180, 180, 0.25);
+}
+
+/* ============================================
+   SOSMED GRID
+   ============================================ */
+.sosmed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.sosmed-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
     text-align: center;
+    transition: 0.4s ease;
 }
 
-.activities-page .routine-item:hover {
-    background: var(--surface-2);
-    border-color: var(--border-strong);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
+.sosmed-card:hover {
+    transform: translateY(-6px);
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow:
+        0 10px 40px rgba(255, 255, 255, 0.15),
+        0 0 80px rgba(150, 150, 150, 0.1);
 }
 
-.activities-page .routine-icon {
+.sosmed-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    filter: grayscale(100%) brightness(1.4);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.sosmed-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: #ffffff;
+}
+
+.sosmed-card p {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   ROUTINE (Kegiatan)
+   ============================================ */
+.routine-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: 0.4s ease;
+}
+
+.routine-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+}
+
+.routine-icon {
+    font-size: 2.5rem;
     display: block;
-    margin-bottom: 12px;
-    font-size: 30px;
-    filter: grayscale(100%);
+    margin-bottom: 0.8rem;
+    filter: grayscale(100%) brightness(1.3);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
-.activities-page .routine-item p,
-.activities-page .activities-note p {
-    margin: 0;
-    padding: 0;
-    background: none;
-    border: 0;
-    box-shadow: none;
-    font-size: 14px;
-    color: var(--text-muted);
-}
-
-/* =========================
-   FOOTER
-========================= */
-.site-footer {
-    margin-top: 60px;
-    padding-top: 28px;
-    border-top: 1px solid var(--border);
-}
-
-.site-footer p,
-.home-page .site-footer p,
-.social-page .site-footer p,
-.activities-page .site-footer p {
-    background: none;
-    border: 0;
-    box-shadow: none;
-    color: var(--text-dim);
-    font-size: 13px;
-    letter-spacing: 0.3px;
-    margin: 0 auto;
-}
-
-/* =========================
-   TEKS SEJAJAR (legacy)
-========================= */
-.teks-sejajar {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 16px;
-    margin: 28px auto;
-    max-width: 1100px;
-}
-
-.teks-sejajar h5 {
-    flex: 1;
-    background: var(--bg-elev);
-    border: 1px solid var(--border);
-    padding: 24px;
-    border-radius: var(--radius);
-    font-size: 14.5px;
-    line-height: 1.7;
+/* ============================================
+   CTA SECTION
+   ============================================ */
+.cta {
     text-align: center;
-    color: var(--text-soft);
-    margin: 0;
+    padding: 4rem 2rem;
+    margin: 2rem 8%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(120, 120, 120, 0.03));
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 760px) {
-    body { padding: 20px 14px 40px; }
+.cta:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 0 40px rgba(255, 255, 255, 0.1),
+        0 0 100px rgba(150, 150, 150, 0.08);
+}
 
+.cta h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 3rem;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================
+   RESPONSIVE (HP)
+   ============================================ */
+@media (max-width: 900px) {
     .site-header {
-        position: static;
-        margin-bottom: 28px;
-        padding: 12px;
-        align-items: flex-start;
         flex-direction: column;
-        border-radius: var(--radius);
+        gap: 1rem;
+        padding: 1.5rem;
     }
 
     .site-nav {
-        width: 100%;
-        justify-content: flex-start;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
     }
 
-    .site-nav a {
-        padding: 8px 12px;
-        font-size: 13px;
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 3rem 5%;
     }
 
-    .card,
-    .social-page .card,
-    .activities-page .activities-card,
-    .activities-page .activities-note {
-        padding: 22px 18px;
+    .hero-text h1 {
+        font-size: 2.3rem;
     }
 
-    .social-page .sosmed-grid,
-    .social-page .gallery,
-    .home-page .grid-2,
-    .activities-page .routine-grid {
-        grid-template-columns: 1fr;
+    .hero-visual {
+        transform: scale(0.85);
+        margin-bottom: 2rem;
     }
 
-    .teks-sejajar { flex-direction: column; }
-
-    .social-page .gallery img,
-    .home-page .gallery img {
-        height: min(340px, 78vw);
+    .card {
+        margin: 1.5rem 5%;
+        padding: 1.8rem;
     }
 
-    h1 { font-size: 28px; }
-
-    .social-page .hero,
-    .home-page .hero,
-    .activities-page .activities-hero {
-        padding: 34px 18px;
+    .data-item {
+        flex-direction: column;
+        gap: 0.3rem;
     }
-}
-
-@media (min-width: 761px) and (max-width: 980px) {
-    .site-header { padding: 10px; }
-    .site-nav { flex-wrap: nowrap; gap: 2px; }
-    .site-nav a { padding: 8px 10px; font-size: 13px; }
 }
