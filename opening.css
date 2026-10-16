@@ -16,7 +16,7 @@
     align-items: center;
     flex-direction: column;
     overflow: hidden;
-    transition: opacity 0.9s ease, visibility 0.9s ease;
+    transition: opacity 12s ease, visibility 12s ease;
 }
 
 /* Grid pattern halus di background opening */
