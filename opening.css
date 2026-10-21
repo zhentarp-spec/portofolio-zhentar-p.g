@@ -1,6 +1,7 @@
 /* ============================================================
    OPENING SCREEN — ZHENTAR P.G.
    Animasi pembuka saat pertama kali masuk web
+   (DISESUAIKAN DENGAN TEMA BIRU MODERN & REDUP)
    ============================================================ */
 
 .opening-screen {
@@ -9,8 +10,8 @@
     z-index: 9999;
     background: #000000;
     background-image:
-        radial-gradient(ellipse 70% 50% at 50% 40%, rgba(80, 80, 80, 0.4) 0%, transparent 65%),
-        radial-gradient(circle at 50% 50%, #0a0a0a 0%, #000000 100%);
+        radial-gradient(ellipse 70% 50% at 50% 40%, rgba(31, 111, 235, 0.15) 0%, transparent 65%),
+        radial-gradient(circle at 50% 50%, #0a1220 0%, #000000 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,8 +26,8 @@
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        linear-gradient(rgba(88, 166, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(88, 166, 255, 0.03) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
     -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
@@ -50,7 +51,7 @@
 .opening-ring {
     position: absolute;
     border-radius: 50%;
-    border: 1px dashed rgba(255, 255, 255, 0.12);
+    border: 1px dashed rgba(88, 166, 255, 0.15);
     pointer-events: none;
 }
 
@@ -64,7 +65,7 @@
     width: 480px;
     height: 480px;
     border-style: solid;
-    border-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(88, 166, 255, 0.08);
     animation: spinSlow 40s linear infinite reverse;
 }
 
@@ -93,20 +94,20 @@
     font-size: clamp(2.8rem, 10vw, 5.5rem);
     font-weight: 700;
     letter-spacing: 12px;
-    color: #ffffff;
+    color: #e2e8f0; /* Putih gading */
     margin-bottom: 0.8rem;
     display: inline-block;
     text-shadow:
-        0 0 20px rgba(255, 255, 255, 0.5),
-        0 0 60px rgba(200, 200, 200, 0.3);
+        0 0 20px rgba(56, 139, 253, 0.25),
+        0 0 60px rgba(31, 111, 235, 0.15); /* Glow biru redup */
     opacity: 0;
     transform: translateY(30px);
     animation: logoReveal 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
 }
 
 .opening-logo span {
-    color: #8c8c8c;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+    color: #79c0ff; /* Biru pastel */
+    text-shadow: 0 0 30px rgba(121, 192, 255, 0.6);
 }
 
 @keyframes logoReveal {
@@ -133,11 +134,11 @@
     display: inline-block;
     width: 5px;
     height: 5px;
-    background: #ffffff;
+    background: #79c0ff;
     border-radius: 50%;
     margin: 0 8px;
     vertical-align: middle;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(121, 192, 255, 0.8);
     animation: blink 1.5s ease-in-out infinite;
 }
 
@@ -150,7 +151,7 @@
 .opening-loader {
     width: 220px;
     height: 2px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(88, 166, 255, 0.15);
     border-radius: 2px;
     margin: 0 auto;
     overflow: hidden;
@@ -166,8 +167,8 @@
     left: -40%;
     width: 40%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, #ffffff, transparent);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+    background: linear-gradient(90deg, transparent, #79c0ff, transparent);
+    box-shadow: 0 0 15px rgba(121, 192, 255, 0.6);
     animation: loaderSlide 1.8s ease-in-out infinite;
 }
 
@@ -206,9 +207,9 @@
     position: absolute;
     width: 3px;
     height: 3px;
-    background: #ffffff;
+    background: #79c0ff; /* Biru pastel */
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(121, 192, 255, 0.6);
     opacity: 0.5;
     animation: particleFloat 8s ease-in-out infinite;
 }
@@ -239,7 +240,7 @@
 }
 
 .opening-percent span {
-    color: #ffffff;
+    color: #79c0ff;
     font-weight: 700;
 }
 
