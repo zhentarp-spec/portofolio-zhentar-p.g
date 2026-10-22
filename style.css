@@ -172,7 +172,7 @@ img {
 }
 
 /* ============================================
-   HERO VISUAL — FOTO PROFIL BULAT
+   HERO VISUAL — FOTO PROFIL
    ============================================ */
 .hero-visual {
     position: relative;
@@ -214,7 +214,7 @@ img {
 .profile-frame {
     width: 220px;
     height: 220px;
-    border-radius: 50%; /* MEMBUAT FOTO BULAT */
+    border-radius: 50%;
     overflow: hidden;
     border: 3px solid var(--blue-accent);
     box-shadow:
@@ -235,8 +235,8 @@ img {
 .profile-frame img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center top;
+    object-fit: contain;
+    object-position: center;
     display: block;
     /* Filter dinaikkan agar gambar tidak menyatu dengan background hitam */
     filter: grayscale(0%) contrast(115%) brightness(1.15) saturate(1.4);
@@ -248,7 +248,7 @@ img {
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 50%;
+    border-radius: inherit;
     background:
         radial-gradient(circle at 30% 25%, rgba(88, 166, 255, 0.35), transparent 55%),
         radial-gradient(circle at 75% 80%, rgba(31, 111, 235, 0.25), transparent 60%);
@@ -263,14 +263,14 @@ img {
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 50%;
+    border-radius: inherit;
     box-shadow: inset 0 0 20px rgba(88, 166, 255, 0.4);
     pointer-events: none;
     z-index: 2;
 }
 
 .profile-frame:hover img {
-    transform: scale(1.08);
+    transform: none;
     filter: grayscale(0%) contrast(120%) brightness(1.2) saturate(1.5);
 }
 
@@ -367,8 +367,7 @@ img {
 .project-showcase img {
     width: 100%;
     height: auto;
-    max-height: 420px;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     display: block;
     filter: grayscale(0%) contrast(115%) brightness(1.1) saturate(1.2);
@@ -552,8 +551,10 @@ img {
 
 .gallery img {
     width: 100%;
-    height: 220px;
-    object-fit: cover;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: contain;
+    background: rgba(0, 0, 0, 0.35);
     border-radius: 12px;
     border: 1px solid var(--blue-line);
     transition: 0.4s ease;
@@ -819,6 +820,16 @@ img {
         margin-bottom: 2rem;
     }
 
+    .profile-glow {
+        width: 260px;
+        height: 260px;
+    }
+
+    .profile-frame {
+        width: 220px;
+        height: 220px;
+    }
+
     .project-section {
         margin: 2.5rem 5%;
         padding: 1.8rem;
@@ -879,7 +890,6 @@ img {
     .profile-glow { width: 200px; height: 200px; }
     .profile-frame { width: 170px; height: 170px; }
     .project-section { padding: 1.5rem; }
-    .project-showcase img { max-height: 220px; }
     .project-frame { width: 240px; }
     .project-frame img { height: 150px; }
     .chart-label { width: 90px; font-size: 12px; }
