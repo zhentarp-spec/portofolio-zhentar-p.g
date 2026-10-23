@@ -235,7 +235,7 @@ img {
 .profile-frame img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     display: block;
     /* Filter dinaikkan agar gambar tidak menyatu dengan background hitam */
@@ -553,7 +553,7 @@ img {
     width: 100%;
     height: auto;
     aspect-ratio: 2 / 3;
-    object-fit: contain;
+    object-fit: cover;
     background: rgba(0, 0, 0, 0.35);
     border-radius: 12px;
     border: 1px solid var(--blue-line);
