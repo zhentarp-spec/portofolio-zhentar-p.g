@@ -52,7 +52,7 @@ body::before {
 .home-page::before {
     position: absolute;
     inset: 0 0 auto;
-    height: 250vh;
+    height: 100vh;
     background-size: 100% 100%, auto 160%;
     background-position: center, center 25%;
 }
