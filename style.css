@@ -1,18 +1,18 @@
 /* ============================================
-   VARIABEL WARNA (REDUP & MODERN) - ASLI
+   VARIABEL WARNA (REDUP & MODERN)
    ============================================ */
 :root {
     --blue-glow-soft: rgba(56, 139, 253, 0.15);
     --blue-glow-mid:  rgba(56, 139, 253, 0.25);
     --blue-glow-strong: rgba(88, 166, 255, 0.45);
     --blue-line: rgba(88, 166, 255, 0.25);
-    --blue-accent: #79c0ff;
+    --blue-accent: #79c0ff; /* Biru pastel (tidak neon) */
     --blue-deep: #1f6feb;
-    --text-clean: #e2e8f0;
+    --text-clean: #e2e8f0;  /* Putih gading (tidak menyilaukan) */
 }
 
 /* ============================================
-   RESET & DASAR - DIPERBAIKI
+   RESET & DASAR
    ============================================ */
 * {
     margin: 0;
@@ -25,44 +25,14 @@ html {
     scroll-behavior: smooth;
 }
 
-/* ===== BACKGROUND DEFAULT: HITAM - BIRU - PUTIH (untuk halaman selain index) ===== */
 body {
+    background-color: #000000;
     color: #e5e5e5;
     min-height: 100vh;
     overflow-x: hidden;
-    position: relative;
-    isolation: isolate;
-    line-height: 1.6;
-    background: linear-gradient(
-        160deg,
-        #000000 0%,
-        #04101f 35%,
-        #0a2540 65%,
-        #1f6feb 85%,
-        #cfe0ff 100%
-    );
+    background-image: radial-gradient(circle at 65% 30%, #12233d 0%, #070d16 45%, #000000 80%);
     background-attachment: fixed;
-}
-
-/* ===== BACKGROUND KHUSUS HALAMAN BERANDA (INDEX) ===== */
-body.home-page {
-    background-color: #000000;
-    background-image: none;
-}
-
-body.home-page::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    height: 100vh;
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.65)),
-        url("./Helmeted%20Varsity%20Jacket%20Sketch%20(1).png");
-    background-size: 100% 100%, 50vw auto;
-    background-position: center, center 10%;
-    background-repeat: no-repeat;
-    pointer-events: none;
+    line-height: 1.6;
 }
 
 a {
@@ -76,7 +46,7 @@ img {
 }
 
 /* ============================================
-   HEADER / NAVBAR - ASLI
+   HEADER / NAVBAR
    ============================================ */
 .site-header {
     display: flex;
@@ -123,11 +93,11 @@ img {
 .site-nav a[aria-current="page"] {
     color: var(--blue-accent);
     border-bottom: 2px solid var(--blue-accent);
-    text-shadow: none;
+    text-shadow: none; 
 }
 
 /* ============================================
-   HERO SECTION - ASLI
+   HERO SECTION
    ============================================ */
 .hero {
     display: flex;
@@ -173,7 +143,7 @@ img {
 }
 
 /* ============================================
-   TOMBOL - ASLI
+   TOMBOL
    ============================================ */
 .btn {
     display: inline-block;
@@ -189,7 +159,7 @@ img {
     font-size: 0.85rem;
     text-transform: uppercase;
     position: relative;
-    text-shadow: none;
+    text-shadow: none; 
 }
 
 .btn:hover {
@@ -202,7 +172,7 @@ img {
 }
 
 /* ============================================
-   HERO VISUAL — FOTO PROFIL - ASLI
+   HERO VISUAL — FOTO PROFIL
    ============================================ */
 .hero-visual {
     position: relative;
@@ -213,15 +183,6 @@ img {
     align-items: center;
     flex-shrink: 0;
     animation: fadeUp 1s ease 0.3s both;
-}
-
-.home-page .hero-visual > img,
-.about-page .hero-visual > img {
-    width: 260px;
-    height: 260px;
-    object-fit: cover;
-    object-position: center 20%;
-    filter: contrast(115%) brightness(1.15) saturate(1.4);
 }
 
 .profile-glow {
@@ -290,7 +251,7 @@ img {
         radial-gradient(circle at 75% 80%, rgba(31, 111, 235, 0.25), transparent 60%);
     mix-blend-mode: screen;
     pointer-events: none;
-    opacity: 0.7;
+    opacity: 0.7; 
     transition: opacity 0.4s ease;
 }
 
@@ -314,7 +275,7 @@ img {
 }
 
 /* ============================================
-   PROJECT SECTION — FOTO SEKOLAH - ASLI
+   PROJECT SECTION — FOTO SEKOLAH
    ============================================ */
 .project-section {
     margin: 4rem 8%;
@@ -413,7 +374,7 @@ img {
 }
 
 /* ============================================
-   IKON TEKNOLOGI - ASLI
+   IKON TEKNOLOGI
    ============================================ */
 .tech-icon {
     position: absolute;
@@ -476,7 +437,7 @@ img {
 .tech-icon.figma { bottom: 4%; right: 14%; animation-delay: 1s; }
 
 /* ============================================
-   CARD / KONTEN - ASLI
+   CARD / KONTEN
    ============================================ */
 .card {
     background: rgba(88, 166, 255, 0.03);
@@ -601,7 +562,7 @@ img {
 }
 
 /* ============================================
-   SOSMED GRID - ASLI
+   SOSMED GRID
    ============================================ */
 .sosmed-grid {
     display: grid;
@@ -650,7 +611,7 @@ img {
 }
 
 /* ============================================
-   ROUTINE (Kegiatan) - ASLI
+   ROUTINE (Kegiatan)
    ============================================ */
 .routine-item {
     background: rgba(88, 166, 255, 0.04);
@@ -678,7 +639,7 @@ img {
 }
 
 /* ============================================
-   CTA SECTION - ASLI
+   CTA SECTION
    ============================================ */
 .cta {
     text-align: center;
@@ -707,7 +668,7 @@ img {
 }
 
 /* ============================================
-   FOOTER - ASLI
+   FOOTER
    ============================================ */
 .site-footer {
     text-align: center;
@@ -720,7 +681,7 @@ img {
 }
 
 /* ============================================
-   CHART (Grafik Minat & Aktivitas) - ASLI
+   CHART (Grafik Minat & Aktivitas)
    ============================================ */
 .chart {
     display: flex;
@@ -789,7 +750,7 @@ img {
 }
 
 /* ============================================
-   ANIMASI - ASLI
+   ANIMASI
    ============================================ */
 @keyframes float {
     0%   { transform: translateY(0px); }
@@ -818,7 +779,7 @@ img {
 }
 
 /* ============================================
-   RESPONSIVE (GABUNGAN & FIX) - ASLI
+   RESPONSIVE (GABUNGAN & FIX)
    ============================================ */
 @media (max-width: 900px) {
     .site-header {
@@ -924,4 +885,299 @@ img {
     .project-frame img { height: 150px; }
     .chart-label { width: 90px; font-size: 12px; }
     .chart-bar { height: 22px; }
+}
+
+/* ============================================================
+   ==== TAMBAHAN ANIMASI BARU ====
+   (blok baru — tidak mengubah apapun di atas)
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   A. MARQUEE — TEKS BERJALAN
+   ------------------------------------------------------------ */
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    padding: 14px 0;
+    margin: 0;
+    border-top: 1px solid var(--blue-line);
+    border-bottom: 1px solid var(--blue-line);
+    background: linear-gradient(
+        90deg,
+        rgba(88, 166, 255, 0.06),
+        rgba(31, 111, 235, 0.02),
+        rgba(88, 166, 255, 0.06)
+    );
+    position: relative;
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+/* Marquee paling atas (langsung di bawah header) — rapat */
+main > .marquee:first-child {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.marquee-track {
+    display: inline-flex;
+    gap: 2rem;
+    animation: marqueeScroll 22s linear infinite;
+    will-change: transform;
+}
+
+.marquee-track span {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--blue-accent);
+    text-transform: uppercase;
+    text-shadow: 0 0 12px var(--blue-glow-mid);
+    padding-right: 2rem;
+}
+
+.marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* Marquee versi terbalik */
+.marquee.reverse .marquee-track {
+    animation-direction: reverse;
+    animation-duration: 28s;
+}
+
+/* ------------------------------------------------------------
+   B. TYPING EFFECT — KURSOR KEDIP
+   ------------------------------------------------------------ */
+.typing-text {
+    display: inline-block;
+    color: var(--blue-accent);
+    font-weight: 700;
+    text-shadow: 0 0 12px var(--blue-glow-mid);
+    border-right: 2px solid var(--blue-accent);
+    padding-right: 4px;
+    animation: blinkCaret 0.8s step-end infinite;
+    min-height: 1em;
+}
+
+@keyframes blinkCaret {
+    0%, 100% { border-color: var(--blue-accent); }
+    50%      { border-color: transparent; }
+}
+
+/* ------------------------------------------------------------
+   C. TILT CARD — kartu 3D
+   ------------------------------------------------------------ */
+.tilt-card {
+    transition: transform 0.25s ease-out, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.tilt-card:hover {
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 0 40px var(--blue-glow-mid);
+}
+
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease;
+}
+
+@media (hover: none) {
+    .cursor-dot {
+        display: none;
+    }
+}
+
+/* ------------------------------------------------------------
+   E. EFEK ANIMASI TAMBAHAN
+   ------------------------------------------------------------ */
+
+/* Gradient teks animasi di hero h1 */
+.hero-text h1 .highlight {
+    background: linear-gradient(
+        90deg,
+        var(--blue-accent),
+        #ffffff,
+        var(--blue-accent)
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 4s linear infinite;
+}
+
+@keyframes gradientShift {
+    to { background-position: 200% center; }
+}
+
+/* Tombol dengan efek kilau */
+.btn {
+    overflow: hidden;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+    transition: left 0.7s ease;
+}
+
+.btn:hover::after {
+    left: 100%;
+}
+
+/* Ikon sosmed bergoyang saat hover */
+.sosmed-card:hover .sosmed-icon,
+.routine-item:hover .routine-icon {
+    animation: wiggle 0.6s ease-in-out;
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25%      { transform: rotate(-10deg) scale(1.15); }
+    75%      { transform: rotate(10deg) scale(1.15); }
+}
+
+/* Badge skill muncul satu per satu */
+.badge {
+    animation: popIn 0.5s ease backwards;
+}
+.badge:nth-child(1) { animation-delay: 0.05s; }
+.badge:nth-child(2) { animation-delay: 0.15s; }
+.badge:nth-child(3) { animation-delay: 0.25s; }
+.badge:nth-child(4) { animation-delay: 0.35s; }
+.badge:nth-child(5) { animation-delay: 0.45s; }
+
+@keyframes popIn {
+    from { opacity: 0; transform: translateY(10px); }
+}
+
+/* ============================================================
+   BACKGROUND FOTO — HANYA UNTUK INDEX (body.home-page)
+   ============================================================ */
+
+/* Index: hitam polos di belakang gambar */
+body.home-page {
+    background-color: #000000;
+    background-image: none;
+}
+
+/* Gambar latar hanya muncul di index */
+body.home-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    height: 100vh;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.65)),
+        url("./Helmeted%20Varsity%20Jacket%20Sketch%20(1).png");
+    background-size: 100% 100%, 50vw auto;
+    background-position: center, center 10%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+/* Halaman lain: gradient hitam-biru-putih, tanpa gambar */
+body:not(.home-page) {
+    background-color: #000000;
+    background-image: radial-gradient(
+        circle at 65% 30%,
+        #12233d 0%,
+        #070d16 45%,
+        #000000 80%
+    );
+    background-attachment: fixed;
+}
+/* ============================================================
+   BACKGROUND FOTO — HANYA INDEX
+   Hanya menutupi BAGIAN ATAS web (tidak fixed, ikut scroll)
+   ============================================================ */
+
+/* Index: hitam polos di belakang */
+body.home-page {
+    background-color: #000000;
+    background-image: none;
+    position: relative;          /* ✅ supaya ::before/::after bisa absolute */
+}
+
+/* Foto latar hanya di bagian atas */
+body.home-page::before {
+    content: "";
+    position: absolute;           /* ✅ BUKAN fixed — ikut scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;                /* setinggi 1 layar, lalu berhenti */
+    z-index: -2;
+
+    background-image: url("./Helmeted%20Varsity%20Jacket%20Sketch%20(1).png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    pointer-events: none;
+}
+
+/* Overlay gradient — juga absolute, hanya setinggi 100vh */
+body.home-page::after {
+    content: "";
+    position: absolute;           /* ✅ BUKAN fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.55) 0%,
+        rgba(0, 0, 0, 0.30) 40%,
+        rgba(0, 0, 0, 0.85) 80%,
+        #000000 100%
+    );
+
+    pointer-events: none;
+}
+
+/* Halaman lain: gradient hitam-biru-putih, tanpa gambar */
+body:not(.home-page) {
+    background-color: #000000;
+    background-image: radial-gradient(
+        circle at 65% 30%,
+        #12233d 0%,
+        #070d16 45%,
+        #000000 80%
+    );
+    background-attachment: fixed;
 }
