@@ -37,7 +37,7 @@ body {
        ============================================ */
     background-image: 
            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.65)), 
-           url('image/Helmeted%20Varsity%20Jacket%20Sketch%20(1).png');
+           url("./assets/images/Helmeted Varsity Jacket Sketch (1).png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
