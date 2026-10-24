@@ -1,920 +1,282 @@
-/* ============================================
-   VARIABEL WARNA (REDUP & MODERN) - ASLI
-   ============================================ */
-:root {
-    --blue-glow-soft: rgba(56, 139, 253, 0.15);
-    --blue-glow-mid:  rgba(56, 139, 253, 0.25);
-    --blue-glow-strong: rgba(88, 166, 255, 0.45);
-    --blue-line: rgba(88, 166, 255, 0.25);
-    --blue-accent: #79c0ff; /* Biru pastel (tidak neon) */
-    --blue-deep: #1f6feb;
-    --text-clean: #e2e8f0;  /* Putih gading (tidak menyilaukan) */
-}
-
-/* ============================================
-   RESET & DASAR - ASLI (DENGAN TAMBAHAN BACKGROUND)
-   ============================================ */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', 'Segoe UI', sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: #000000;
-    color: #e5e5e5;
-    min-height: 100vh;
-    overflow-x: hidden;
-    
-    /* ============================================
-       TAMBAHAN BACKGROUND FOTO (BARU)
-       GANTI URL DI BAWAH DENGAN FOTO ANDA
-       ============================================ */
-    background-image: 
-           linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.65)), 
-           url('image/Helmeted%20Varsity%20Jacket%20Sketch%20(1).png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    
-    /* Background radial-gradient biru asli dihapus hanya untuk body, 
-       tapi variabel warna biru tetap dipakai di elemen lain */
-    
-    line-height: 1.6;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-/* ============================================
-   HEADER / NAVBAR - ASLI
-   ============================================ */
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 6%;
-    position: sticky;
-    top: 0;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(14px);
-    z-index: 100;
-    border-bottom: 1px solid var(--blue-line);
-}
-
-.site-brand {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-clean);
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px var(--blue-glow-mid);
-}
-
-.site-brand span {
-    color: var(--blue-accent);
-    text-shadow: 0 0 10px var(--blue-glow-strong);
-}
-
-.site-nav {
-    display: flex;
-    gap: 2rem;
-}
-
-.site-nav a {
-    color: #8c8c8c;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    transition: 0.3s;
-    padding-bottom: 4px;
-    border-bottom: 2px solid transparent;
-}
-
-.site-nav a:hover,
-.site-nav a[aria-current="page"] {
-    color: var(--blue-accent);
-    border-bottom: 2px solid var(--blue-accent);
-    text-shadow: none; 
-}
-
-/* ============================================
-   HERO SECTION - ASLI
-   ============================================ */
-.hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 3rem;
-    padding: 5rem 8%;
-    min-height: 70vh;
-    flex-wrap: wrap;
-}
-
-.hero-text {
-    flex: 1;
-    min-width: 300px;
-    max-width: 550px;
-}
-
-.greeting {
-    font-size: 1.1rem;
-    color: #b3b3b3;
-    margin-bottom: 10px;
-    letter-spacing: 0.5px;
-}
-
-.hero-text h1 {
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    font-weight: 700;
-    color: var(--text-clean);
-    text-shadow: 0 0 20px var(--blue-glow-soft);
-}
-
-.highlight {
-    color: var(--blue-accent);
-    text-shadow: 0 0 12px var(--blue-glow-mid);
-}
-
-.description {
-    color: #8c8c8c;
-    margin-bottom: 30px;
-    font-size: 1rem;
-}
-
-/* ============================================
-   TOMBOL - ASLI
-   ============================================ */
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    border: 1px solid var(--blue-accent);
-    color: var(--blue-accent);
-    border-radius: 6px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    transition: 0.35s ease;
-    background: transparent;
-    cursor: pointer;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    position: relative;
-    text-shadow: none; 
-}
-
-.btn:hover {
-    background: var(--blue-accent);
-    color: #04101f;
-    box-shadow:
-        0 0 15px var(--blue-glow-mid),
-        0 0 30px var(--blue-glow-soft);
-    transform: translateY(-2px);
-}
-
-/* ============================================
-   HERO VISUAL — FOTO PROFIL - ASLI
-   ============================================ */
-.hero-visual {
-    position: relative;
-    width: 460px;
-    height: 460px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    animation: fadeUp 1s ease 0.3s both;
-}
-
-.home-page .hero-visual > img,
-.about-page .hero-visual > img {
-    width: 260px;
-    height: 260px;
-    object-fit: cover;
-    object-position: center 20%;
-    filter: contrast(115%) brightness(1.15) saturate(1.4);
-}
-
-.profile-glow {
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: radial-gradient(circle at 30% 30%, #1b2b4a, #0d1626 60%, #060a12);
-    border: 1px solid var(--blue-line);
-    box-shadow:
-        0 0 20px var(--blue-glow-mid),
-        0 0 50px var(--blue-glow-soft),
-        0 0 100px rgba(31, 111, 235, 0.15);
-    animation: float 5s ease-in-out infinite;
-    position: relative;
-    transform: translate3d(var(--mx, 0), var(--my, 0), 0);
-    transition: transform 0.2s ease-out;
-}
-
-.profile-glow:hover {
-    animation-play-state: paused;
-    box-shadow:
-        0 0 40px var(--blue-glow-strong),
-        0 0 90px var(--blue-glow-mid),
-        0 0 150px var(--blue-glow-soft);
-}
-
-.profile-frame {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid var(--blue-accent);
-    box-shadow:
-        0 0 20px var(--blue-glow-strong),
-        0 10px 30px rgba(0, 0, 0, 0.7);
-    position: relative;
-    transition: all 0.4s ease;
-}
-
-.profile-frame:hover {
-    box-shadow:
-        0 0 25px rgba(121, 192, 255, 0.8),
-        0 0 50px rgba(121, 192, 255, 0.3),
-        0 10px 30px rgba(0, 0, 0, 0.8);
-}
-
-/* Gambar profil — penuh warna, terang, tidak polos */
-.profile-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 20%;
-    display: block;
-    /* Filter dinaikkan agar gambar tidak menyatu dengan background hitam */
-    filter: grayscale(0%) contrast(115%) brightness(1.15) saturate(1.4);
-    transition: transform 0.5s ease, filter 0.4s ease;
-}
-
-/* Efek cahaya di dalam foto profil */
-.profile-frame::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background:
-        radial-gradient(circle at 30% 25%, rgba(88, 166, 255, 0.35), transparent 55%),
-        radial-gradient(circle at 75% 80%, rgba(31, 111, 235, 0.25), transparent 60%);
-    mix-blend-mode: screen;
-    pointer-events: none;
-    opacity: 0.7; 
-    transition: opacity 0.4s ease;
-}
-
-/* Rim light tepi dalam */
-.profile-frame::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    box-shadow: inset 0 0 20px rgba(88, 166, 255, 0.4);
-    pointer-events: none;
-    z-index: 2;
-}
-
-.profile-frame:hover img {
-    transform: none;
-    filter: grayscale(0%) contrast(120%) brightness(1.2) saturate(1.5);
-}
-
-.profile-frame:hover::after {
-    opacity: 1;
-}
-
-/* ============================================
-   PROJECT SECTION — FOTO SEKOLAH - ASLI
-   ============================================ */
-.project-section {
-    margin: 4rem 8%;
-    padding: 2.5rem;
-    background: rgba(88, 166, 255, 0.03);
-    border: 1px solid var(--blue-line);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    position: relative;
-    overflow: hidden;
-    transition: 0.4s ease;
-}
-
-.project-section::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--blue-accent), transparent);
-    opacity: 0.6;
-}
-
-.project-section:hover {
-    border-color: var(--blue-accent);
-    box-shadow:
-        0 0 30px var(--blue-glow-soft),
-        0 0 60px rgba(31, 111, 235, 0.1);
-}
-
-/* Header project */
-.project-header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.project-badge {
-    display: inline-block;
-    background: rgba(88, 166, 255, 0.12);
-    color: var(--blue-accent);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    padding: 6px 16px;
-    border-radius: 999px;
-    border: 1px solid var(--blue-line);
-    margin-bottom: 1rem;
-    text-shadow: 0 0 10px var(--blue-glow-mid);
-}
-
-.project-header h2 {
-    font-size: 1.8rem;
-    color: var(--text-clean);
-    margin-bottom: 0.5rem;
-    text-shadow: 0 0 15px var(--blue-glow-soft);
-}
-
-.project-header p {
-    color: #8c8c8c;
-    font-size: 0.95rem;
-}
-
-/* Showcase foto project */
-.project-showcase {
-    position: relative;
-    max-width: 450px;
-    margin: 0 auto;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 2px solid var(--blue-line);
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.7),
-        0 0 40px var(--blue-glow-soft);
-    transition: 0.4s ease;
-}
-
-.project-showcase:hover {
-    border-color: var(--blue-accent);
-    box-shadow:
-        0 0 35px var(--blue-glow-strong),
-        0 0 80px var(--blue-glow-mid),
-        0 20px 60px rgba(0, 0, 0, 0.8);
-    transform: translateY(-4px);
-}
-
-.project-showcase img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-    display: block;
-    filter: grayscale(0%) contrast(115%) brightness(1.1) saturate(1.2);
-    transition: transform 0.5s ease, filter 0.4s ease;
-}
-
-.project-showcase:hover img {
-    transform: scale(1.03);
-    filter: grayscale(0%) contrast(120%) brightness(1.15) saturate(1.3);
-}
-
-/* ============================================
-   IKON TEKNOLOGI - ASLI
-   ============================================ */
-.tech-icon {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #e5e5e5;
-    background: rgba(10, 20, 35, 0.85);
-    border: 1px solid var(--blue-line);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow:
-        0 6px 24px rgba(0, 0, 0, 0.6),
-        inset 0 0 12px rgba(88, 166, 255, 0.08);
-    animation: float 3.5s ease-in-out infinite;
-    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-    z-index: 3;
-    cursor: pointer;
-    opacity: 0.85;
-}
-
-.tech-icon:hover {
-    background: var(--blue-accent);
-    color: #04101f;
-    border-color: var(--blue-accent);
-    transform: translateY(-6px) scale(1.2) !important;
-    opacity: 1;
-    box-shadow:
-        0 0 30px var(--blue-glow-strong),
-        0 0 70px var(--blue-glow-mid);
-    animation-play-state: paused;
-}
-
-.tech-icon.touch-active {
-    background: var(--blue-accent) !important;
-    color: #04101f !important;
-    transform: scale(1.2) !important;
-    box-shadow:
-        0 0 30px var(--blue-glow-strong),
-        0 0 70px var(--blue-glow-mid) !important;
-    opacity: 1;
-}
-
-.tech-icon span {
-    position: relative;
-    z-index: 1;
-}
-
-.tech-icon.html  { top: 5%;    left: 8%;   animation-delay: 0.2s; }
-.tech-icon.js    { top: 2%;    right: 10%; animation-delay: 0s; }
-.tech-icon.css   { top: 46%;   left: -2%;  animation-delay: 1.4s; }
-.tech-icon.react { top: 42%;   right: -2%; animation-delay: 0.8s; }
-.tech-icon.node  { bottom: 8%; left: 10%;  animation-delay: 1.8s; }
-.tech-icon.figma { bottom: 4%; right: 14%; animation-delay: 1s; }
-
-/* ============================================
-   CARD / KONTEN - ASLI
-   ============================================ */
-.card {
-    background: rgba(88, 166, 255, 0.03);
-    border: 1px solid var(--blue-line);
-    border-radius: 16px;
-    padding: 2.5rem;
-    margin: 2rem 8%;
-    backdrop-filter: blur(10px);
-    transition: 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--blue-accent), transparent);
-    opacity: 0.6;
-}
-
-.card:hover {
-    border-color: var(--blue-accent);
-    box-shadow:
-        0 0 30px var(--blue-glow-soft),
-        0 0 60px rgba(31, 111, 235, 0.1);
-    transform: translateY(-3px);
-}
-
-.card h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--text-clean);
-    letter-spacing: 0.5px;
-    text-shadow: 0 0 15px var(--blue-glow-soft);
-}
-
-.card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    color: #e0e0e0;
-    letter-spacing: 0.3px;
-    text-shadow: none;
-}
-
-.card p {
-    color: #a6a6a6;
-    margin-bottom: 1rem;
-}
-
-.card strong { color: var(--text-clean); }
-.card em { color: #d9d9d9; font-style: italic; }
-
-/* Grid 2 kolom */
-.grid-2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-/* Data Diri */
-.data-diri {
-    display: grid;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.data-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 1.5rem;
-    background: rgba(88, 166, 255, 0.04);
-    border-left: 3px solid var(--blue-accent);
-    border-radius: 8px;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    transition: 0.3s;
-}
-
-.data-item:hover {
-    background: rgba(88, 166, 255, 0.08);
-    border-left-color: var(--blue-accent);
-    box-shadow: 0 0 20px var(--blue-glow-soft);
-}
-
-.data-item .label {
-    color: #8c8c8c;
-    font-size: 0.9rem;
-}
-
-.data-item .value {
-    color: var(--text-clean);
-    font-weight: 600;
-}
-
-/* Gallery */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.gallery img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 2 / 3;
-    object-fit: cover;
-    background: rgba(0, 0, 0, 0.35);
-    border-radius: 12px;
-    border: 1px solid var(--blue-line);
-    transition: 0.4s ease;
-    filter: grayscale(0%) contrast(112%) brightness(1.08) saturate(1.15);
-}
-
-.gallery img:hover {
-    transform: scale(1.03);
-    border-color: var(--blue-accent);
-    filter: grayscale(0%) contrast(118%) brightness(1.15) saturate(1.25);
-    box-shadow:
-        0 0 25px var(--blue-glow-strong),
-        0 0 60px var(--blue-glow-mid);
-}
-
-/* ============================================
-   SOSMED GRID - ASLI
-   ============================================ */
-.sosmed-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.sosmed-card {
-    background: rgba(88, 166, 255, 0.04);
-    border: 1px solid var(--blue-line);
-    border-radius: 16px;
-    padding: 2rem;
-    text-align: center;
-    transition: 0.4s ease;
-}
-
-.sosmed-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--blue-accent);
-    background: rgba(88, 166, 255, 0.08);
-    box-shadow:
-        0 10px 40px var(--blue-glow-soft),
-        0 0 80px rgba(31, 111, 235, 0.12);
-}
-
-.sosmed-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--blue-accent);
-    filter: none;
-    text-shadow: 0 0 20px var(--blue-glow-mid);
-}
-
-.sosmed-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-    color: var(--text-clean);
-    text-shadow: none;
-}
-
-.sosmed-card p {
-    font-size: 0.9rem;
-    color: #999;
-    margin-bottom: 1.5rem;
-}
-
-/* ============================================
-   ROUTINE (Kegiatan) - ASLI
-   ============================================ */
-.routine-item {
-    background: rgba(88, 166, 255, 0.04);
-    border: 1px solid var(--blue-line);
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: 0.4s ease;
-}
-
-.routine-item:hover {
-    background: rgba(88, 166, 255, 0.08);
-    border-color: var(--blue-accent);
-    transform: translateY(-4px);
-    box-shadow: 0 0 30px var(--blue-glow-soft);
-}
-
-.routine-icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 0.8rem;
-    color: var(--blue-accent);
-    filter: none;
-    text-shadow: 0 0 20px var(--blue-glow-mid);
-}
-
-/* ============================================
-   CTA SECTION - ASLI
-   ============================================ */
-.cta {
-    text-align: center;
-    padding: 4rem 2rem;
-    margin: 2rem 8%;
-    background: linear-gradient(135deg, rgba(88, 166, 255, 0.1), rgba(31, 111, 235, 0.03));
-    border-radius: 20px;
-    border: 1px solid var(--blue-line);
-    position: relative;
-    overflow: hidden;
-    transition: 0.4s;
-}
-
-.cta:hover {
-    border-color: var(--blue-accent);
-    box-shadow:
-        0 0 40px var(--blue-glow-soft),
-        0 0 100px rgba(31, 111, 235, 0.1);
-}
-
-.cta h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-clean);
-    text-shadow: 0 0 20px var(--blue-glow-soft);
-}
-
-/* ============================================
-   FOOTER - ASLI
-   ============================================ */
-.site-footer {
-    text-align: center;
-    padding: 2rem;
-    color: #666;
-    font-size: 0.9rem;
-    border-top: 1px solid var(--blue-line);
-    margin-top: 3rem;
-    letter-spacing: 0.5px;
-}
-
-/* ============================================
-   CHART (Grafik Minat & Aktivitas) - ASLI
-   ============================================ */
-.chart {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin: 20px 0;
-}
-
-.chart-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.chart-label {
-    width: 120px;
-    font-weight: 600;
-    font-size: 14px;
-    color: #d9d9d9;
-}
-
-.chart-bar {
-    flex: 1;
-    background: rgba(88, 166, 255, 0.08);
-    border-radius: 20px;
-    overflow: hidden;
-    height: 26px;
-    border: 1px solid var(--blue-line);
-}
-
-.chart-bar .fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--blue-deep), var(--blue-accent));
-    color: #04101f;
-    font-size: 12px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 8px;
-    border-radius: 20px;
-    transition: width 1s ease;
-}
-
-.skills {
-    margin-top: 24px;
-}
-
-.badge {
-    display: inline-block;
-    background: rgba(88, 166, 255, 0.1);
-    color: var(--text-clean);
-    padding: 6px 14px;
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 600;
-    margin: 4px 4px 0 0;
-    border: 1px solid var(--blue-line);
-    transition: 0.3s;
-}
-
-.badge:hover {
-    background: var(--blue-accent);
-    color: #04101f;
-    box-shadow: 0 0 20px var(--blue-glow-mid);
-}
-
-/* ============================================
-   ANIMASI - ASLI
-   ============================================ */
-@keyframes float {
-    0%   { transform: translateY(0px); }
-    50%  { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
-}
-
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulseGlowSoft {
-    0%, 100% {
-        box-shadow:
-            0 0 20px var(--blue-glow-soft),
-            0 0 45px rgba(31, 111, 235, 0.25),
-            0 0 90px rgba(31, 111, 235, 0.12);
-    }
-    50% {
-        box-shadow:
-            0 0 40px var(--blue-glow-mid),
-            0 0 80px var(--blue-glow-soft),
-            0 0 140px rgba(31, 111, 235, 0.25);
-    }
-}
-
-/* ============================================
-   RESPONSIVE (GABUNGAN & FIX) - ASLI
-   ============================================ */
-@media (max-width: 900px) {
-    .site-header {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1.5rem;
-    }
-
-    .site-nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-    }
-
-    .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding: 3rem 5%;
-    }
-
-    .hero-text h1 {
-        font-size: 2.3rem;
-    }
-
-    .hero-visual {
-        width: 380px;
-        height: 380px;
-        transform: scale(0.9);
-        margin-bottom: 2rem;
-    }
-
-    .profile-glow {
-        width: 260px;
-        height: 260px;
-    }
-
-    .profile-frame {
-        width: 220px;
-        height: 220px;
-    }
-
-    .project-section {
-        margin: 2.5rem 5%;
-        padding: 1.8rem;
-    }
-
-    .project-showcase img {
-        max-height: 280px;
-    }
-
-    .project-header h2 {
-        font-size: 1.5rem;
-    }
-
-    .card {
-        margin: 1.5rem 5%;
-        padding: 1.8rem;
-    }
-
-    .data-item {
-        flex-direction: column;
-        gap: 0.3rem;
-    }
-
-    .tech-icon {
-        width: 48px;
-        height: 48px;
-        font-size: 0.78rem;
-        border-radius: 14px;
-    }
-    .tech-icon.html  { top: 4%;    left: 4%; }
-    .tech-icon.js    { top: 0%;    right: 6%; }
-    .tech-icon.css   { top: 46%;   left: -4%; }
-    .tech-icon.react { top: 42%;   right: -4%; }
-    .tech-icon.node  { bottom: 6%; left: 6%; }
-    .tech-icon.figma { bottom: 2%; right: 10%; }
-}
-
-@media (max-width: 500px) {
-    .hero-visual {
-        width: 320px;
-        height: 320px;
-    }
-    .tech-icon {
-        width: 42px;
-        height: 42px;
-        font-size: 0.7rem;
-        border-radius: 12px;
-    }
-    .tech-icon.html  { top: 2%;    left: 2%; }
-    .tech-icon.js    { top: -2%;   right: 4%; }
-    .tech-icon.css   { top: 46%;   left: -6%; }
-    .tech-icon.react { top: 42%;   right: -6%; }
-    .tech-icon.node  { bottom: 4%; left: 4%; }
-    .tech-icon.figma { bottom: 0%; right: 8%; }
-}
-
-@media (max-width: 480px) {
-    .profile-glow { width: 200px; height: 200px; }
-    .profile-frame { width: 170px; height: 170px; }
-    .project-section { padding: 1.5rem; }
-    .project-frame { width: 240px; }
-    .project-frame img { height: 150px; }
-    .chart-label { width: 90px; font-size: 12px; }
-    .chart-bar { height: 22px; }
+/* ============================================================
+   ZHENTAR P.G. — PORTFOLIO INTERACTIONS
+   Animasi & Ikon Teknologi untuk Foto Profil
+   ============================================================ */
+
+document.addEventListener('DOMContentLoaded', () => {
+    initTechIcons();
+    initScrollReveal();
+    initParallaxGlow();
+    initProfileHover();
+
+    /* ==== TAMBAHAN ANIMASI BARU ==== */
+    initMarquee();          // teks berjalan
+    initTypingEffect();     // teks ngetik di hero
+    initTiltCard();         // kartu miring 3D saat mouse gerak
+    initCursorDot();        // titik putih mengikuti kursor
+    initCounterNumbers();   // angka chart naik dari 0
+});
+
+/* ------------------------------------------------------------
+   1. IKON TEKNOLOGI MELAYANG DI SEKITAR FOTO PROFIL
+   ------------------------------------------------------------ */
+function initTechIcons() {
+    const visual = document.querySelector('.hero-visual');
+    if (!visual) return;
+    if (visual.querySelector('.tech-icon')) return;
+
+    const icons = [
+        { cls: 'html',  label: '</>' },
+        { cls: 'css',   label: 'CSS' },
+        { cls: 'js',    label: 'JS' },
+        { cls: 'react', label: '⚛' },
+        { cls: 'node',  label: '⬢' },
+        { cls: 'figma', label: '🎨' }
+    ];
+
+    icons.forEach(({ cls, label }) => {
+        const el = document.createElement('div');
+        el.className = `tech-icon ${cls}`;
+        const labelEl = document.createElement('span');
+        labelEl.textContent = label;
+        el.appendChild(labelEl);
+        el.setAttribute('aria-hidden', 'true');
+        el.title = cls.toUpperCase();
+
+        el.addEventListener('touchstart', () => {
+            el.classList.add('touch-active');
+            setTimeout(() => el.classList.remove('touch-active'), 400);
+        }, { passive: true });
+
+        visual.appendChild(el);
+    });
+}
+
+/* ------------------------------------------------------------
+   2. SCROLL REVEAL — elemen muncul halus saat di-scroll
+   ------------------------------------------------------------ */
+function initScrollReveal() {
+    const targets = document.querySelectorAll(
+        '.card, .project-section, .cta, .hero-text, .hero-visual'
+    );
+    if (!targets.length) return;
+
+    targets.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const delay = entry.target.dataset.revealDelay || 0;
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, delay);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    targets.forEach((el, i) => {
+        el.dataset.revealDelay = i * 80;
+        observer.observe(el);
+    });
+}
+
+/* ------------------------------------------------------------
+   3. PARALLAX GLOW — cahaya foto mengikuti mouse
+   ------------------------------------------------------------ */
+function initParallaxGlow() {
+    const glow = document.querySelector('.profile-glow');
+    if (!glow) return;
+    if (window.matchMedia('(hover: none)').matches) return;
+
+    const parent = glow.closest('.hero-visual') || glow.parentElement;
+
+    parent.addEventListener('mousemove', (e) => {
+        const rect = parent.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        glow.style.setProperty('--mx', `${x * 12}px`);
+        glow.style.setProperty('--my', `${y * 12}px`);
+    });
+
+    parent.addEventListener('mouseleave', () => {
+        glow.style.setProperty('--mx', '0px');
+        glow.style.setProperty('--my', '0px');
+    });
+}
+
+/* ------------------------------------------------------------
+   4. PROFILE HOVER — efek zoom + glow tambahan saat hover
+   ------------------------------------------------------------ */
+function initProfileHover() {
+    const frame = document.querySelector('.profile-glow');
+    if (!frame) return;
+
+    frame.addEventListener('mouseenter', () => {
+        frame.style.animationPlayState = 'paused';
+    });
+
+    frame.addEventListener('mouseleave', () => {
+        frame.style.animationPlayState = 'running';
+    });
+}
+
+/* ============================================================
+   ============ TAMBAHAN ANIMASI BARU =========================
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   5. MARQUEE — teks berjalan otomatis
+   ------------------------------------------------------------ */
+function initMarquee() {
+    // Cari semua <div class="marquee">, lalu isi dengan teks berulang
+    document.querySelectorAll('.marquee').forEach((marquee) => {
+        // Kalau sudah ada isinya, biarkan
+        if (marquee.querySelector('.marquee-track')) return;
+
+        const text = marquee.dataset.text || 'HTML • CSS • JAVASCRIPT • PYTHON • PHP • RPL • ';
+        const track = document.createElement('div');
+        track.className = 'marquee-track';
+
+        // Bikin 2 span: satu isi teks, satu duplikat (biar loop mulus)
+        for (let i = 0; i < 2; i++) {
+            const span = document.createElement('span');
+            span.textContent = text + ' ';
+            track.appendChild(span);
+        }
+
+        marquee.appendChild(track);
+        marquee.classList.add('marquee-ready');
+    });
+}
+
+/* ------------------------------------------------------------
+   6. TYPING EFFECT — teks ngetik di hero
+   ------------------------------------------------------------ */
+function initTypingEffect() {
+    // Cari elemen dengan class .typing-text
+    const typingEls = document.querySelectorAll('.typing-text');
+    if (!typingEls.length) return;
+
+    typingEls.forEach((el) => {
+        const words = JSON.parse(el.dataset.words || '["Web Developer","Siswa RPL","Pembelajar"]');
+        let wordIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        const type = () => {
+            const current = words[wordIndex];
+            if (deleting) {
+                el.textContent = current.substring(0, charIndex--);
+            } else {
+                el.textContent = current.substring(0, charIndex++);
+            }
+
+            let speed = deleting ? 50 : 100;
+
+            if (!deleting && charIndex === current.length + 1) {
+                speed = 1500;
+                deleting = true;
+            } else if (deleting && charIndex === 0) {
+                deleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                speed = 400;
+            }
+
+            setTimeout(type, speed);
+        };
+
+        type();
+    });
+}
+
+/* ------------------------------------------------------------
+   7. TILT CARD — kartu miring 3D mengikuti mouse
+   ------------------------------------------------------------ */
+function initTiltCard() {
+    if (window.matchMedia('(hover: none)').matches) return;
+
+    const cards = document.querySelectorAll('.card, .sosmed-card, .routine-item');
+    cards.forEach((card) => {
+        card.classList.add('tilt-card');
+
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            card.style.transform =
+                `perspective(900px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg) translateY(-4px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+}
+
+/* ------------------------------------------------------------
+   8. CURSOR DOT — titik putih mengikuti kursor
+   ------------------------------------------------------------ */
+function initCursorDot() {
+    if (window.matchMedia('(hover: none)').matches) return;
+    if (document.querySelector('.cursor-dot')) return;
+
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    dot.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(dot);
+
+    document.addEventListener('mousemove', (e) => {
+        dot.style.left = `${e.clientX}px`;
+        dot.style.top = `${e.clientY}px`;
+        dot.style.opacity = '1';
+    });
+}
+
+/* ------------------------------------------------------------
+   9. COUNTER NUMBERS — angka chart naik dari 0 ke target
+   ------------------------------------------------------------ */
+function initCounterNumbers() {
+    const fills = document.querySelectorAll('.chart-bar .fill');
+    if (!fills.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+
+            const el = entry.target;
+            const target = parseInt(el.style.width) || 0;
+            let current = 0;
+
+            el.style.width = '0%';
+            el.textContent = '0%';
+
+            const duration = 1200;
+            const startTime = performance.now();
+
+            const step = (now) => {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3); // ease-out
+                current = Math.round(target * eased);
+                el.style.width = current + '%';
+                el.textContent = current + '%';
+
+                if (progress < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+
+            observer.unobserve(el);
+        });
+    }, { threshold: 0.4 });
+
+    fills.forEach((fill) => observer.observe(fill));
 }
