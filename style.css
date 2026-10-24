@@ -30,23 +30,24 @@ body {
     color: #e5e5e5;
     min-height: 100vh;
     overflow-x: hidden;
-    
-    /* ============================================
-       TAMBAHAN BACKGROUND FOTO (BARU)
-       GANTI URL DI BAWAH DENGAN FOTO ANDA
-       ============================================ */
-    background-image: 
-           linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.65)), 
-           url("./Helmeted%20Varsity%20Jacket%20Sketch%20(1).png");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    
-    /* Background radial-gradient biru asli dihapus hanya untuk body, 
-       tapi variabel warna biru tetap dipakai di elemen lain */
-    
+    position: relative;
+    isolation: isolate;
     line-height: 1.6;
+}
+
+.home-page::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: -1;
+    height: 100vh;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.65)),
+        url("./Helmeted%20Varsity%20Jacket%20Sketch%20(1).png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    pointer-events: none;
 }
 
 a {
