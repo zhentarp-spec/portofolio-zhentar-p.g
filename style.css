@@ -1,5 +1,5 @@
 /* ============================================
-   VARIABEL WARNA (REDUP & MODERN)
+   VARIABEL WARNA (REDUP & MODERN) - ASLI
    ============================================ */
 :root {
     --blue-glow-soft: rgba(56, 139, 253, 0.15);
@@ -12,7 +12,7 @@
 }
 
 /* ============================================
-   RESET & DASAR
+   RESET & DASAR - ASLI (DENGAN TAMBAHAN BACKGROUND)
    ============================================ */
 * {
     margin: 0;
@@ -30,8 +30,22 @@ body {
     color: #e5e5e5;
     min-height: 100vh;
     overflow-x: hidden;
-    background-image: radial-gradient(circle at 65% 30%, #12233d 0%, #070d16 45%, #000000 80%);
+    
+    /* ============================================
+       TAMBAHAN BACKGROUND FOTO (BARU)
+       GANTI URL DI BAWAH DENGAN FOTO ANDA
+       ============================================ */
+    background-image: 
+           linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.65)), 
+           url('image/Helmeted%20Varsity%20Jacket%20Sketch%20(1).png');
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    
+    /* Background radial-gradient biru asli dihapus hanya untuk body, 
+       tapi variabel warna biru tetap dipakai di elemen lain */
+    
     line-height: 1.6;
 }
 
@@ -46,7 +60,7 @@ img {
 }
 
 /* ============================================
-   HEADER / NAVBAR
+   HEADER / NAVBAR - ASLI
    ============================================ */
 .site-header {
     display: flex;
@@ -97,7 +111,7 @@ img {
 }
 
 /* ============================================
-   HERO SECTION
+   HERO SECTION - ASLI
    ============================================ */
 .hero {
     display: flex;
@@ -143,7 +157,7 @@ img {
 }
 
 /* ============================================
-   TOMBOL
+   TOMBOL - ASLI
    ============================================ */
 .btn {
     display: inline-block;
@@ -172,7 +186,7 @@ img {
 }
 
 /* ============================================
-   HERO VISUAL — FOTO PROFIL
+   HERO VISUAL — FOTO PROFIL - ASLI
    ============================================ */
 .hero-visual {
     position: relative;
@@ -183,6 +197,15 @@ img {
     align-items: center;
     flex-shrink: 0;
     animation: fadeUp 1s ease 0.3s both;
+}
+
+.home-page .hero-visual > img,
+.about-page .hero-visual > img {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    object-position: center 20%;
+    filter: contrast(115%) brightness(1.15) saturate(1.4);
 }
 
 .profile-glow {
@@ -279,7 +302,7 @@ img {
 }
 
 /* ============================================
-   PROJECT SECTION — FOTO SEKOLAH
+   PROJECT SECTION — FOTO SEKOLAH - ASLI
    ============================================ */
 .project-section {
     margin: 4rem 8%;
@@ -380,7 +403,7 @@ img {
 }
 
 /* ============================================
-   IKON TEKNOLOGI
+   IKON TEKNOLOGI - ASLI
    ============================================ */
 .tech-icon {
     position: absolute;
@@ -443,7 +466,7 @@ img {
 .tech-icon.figma { bottom: 4%; right: 14%; animation-delay: 1s; }
 
 /* ============================================
-   CARD / KONTEN
+   CARD / KONTEN - ASLI
    ============================================ */
 .card {
     background: rgba(88, 166, 255, 0.03);
@@ -571,7 +594,7 @@ img {
 }
 
 /* ============================================
-   SOSMED GRID
+   SOSMED GRID - ASLI
    ============================================ */
 .sosmed-grid {
     display: grid;
@@ -620,7 +643,7 @@ img {
 }
 
 /* ============================================
-   ROUTINE (Kegiatan)
+   ROUTINE (Kegiatan) - ASLI
    ============================================ */
 .routine-item {
     background: rgba(88, 166, 255, 0.04);
@@ -648,7 +671,7 @@ img {
 }
 
 /* ============================================
-   CTA SECTION
+   CTA SECTION - ASLI
    ============================================ */
 .cta {
     text-align: center;
@@ -677,7 +700,7 @@ img {
 }
 
 /* ============================================
-   FOOTER
+   FOOTER - ASLI
    ============================================ */
 .site-footer {
     text-align: center;
@@ -690,7 +713,7 @@ img {
 }
 
 /* ============================================
-   CHART (Grafik Minat & Aktivitas)
+   CHART (Grafik Minat & Aktivitas) - ASLI
    ============================================ */
 .chart {
     display: flex;
@@ -759,7 +782,7 @@ img {
 }
 
 /* ============================================
-   ANIMASI
+   ANIMASI - ASLI
    ============================================ */
 @keyframes float {
     0%   { transform: translateY(0px); }
@@ -788,7 +811,7 @@ img {
 }
 
 /* ============================================
-   RESPONSIVE (GABUNGAN & FIX)
+   RESPONSIVE (GABUNGAN & FIX) - ASLI
    ============================================ */
 @media (max-width: 900px) {
     .site-header {
