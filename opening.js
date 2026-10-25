@@ -36,7 +36,7 @@
         <span class="opening-particle"></span>
 
         <div class="opening-content">
-            <h1 class="opening-logo">ZHENTAR<span>P.G</span></h1>
+            <h1 class="opening-logo">ZHENTAR<span> P.G</span></h1>
             <p class="opening-subtitle">
                 Front-End Developer
                 <span class="dot"></span>
