@@ -1139,7 +1139,7 @@ body:not(.home-page) {
     position: absolute;
     inset: 12px;
     z-index: -1;
-    border: 1px dashed rgba(121, 192, 255, 0.42);
+    border: 1px solid rgba(226, 232, 240, 0.2);
     border-radius: 50%;
 }
 
@@ -1149,55 +1149,19 @@ body:not(.home-page) {
     left: 50%;
     width: var(--photo-size);
     height: var(--photo-size);
-    padding: 7px;
+    padding: 4px;
     overflow: visible;
     transform: translate(-50%, -50%);
-    border: 2px solid transparent;
+    border: 1px solid rgba(226, 232, 240, 0.72);
     border-radius: 50%;
-    background:
-        linear-gradient(145deg, #08111f, #10152a) padding-box,
-        linear-gradient(135deg, #70e1ff 0%, #547bff 42%, #bf70ff 73%, #ff8db8 100%) border-box;
-    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42), 0 0 30px rgba(102, 143, 255, 0.26);
+    background: transparent;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
     transition: box-shadow 0.4s ease, scale 0.4s ease;
-}
-
-.hero-photo::before {
-    content: "";
-    position: absolute;
-    inset: -8px;
-    z-index: -1;
-    border: 1px solid transparent;
-    border-radius: 50%;
-    background:
-        linear-gradient(#080d18, #080d18) padding-box,
-        linear-gradient(135deg, rgba(112, 225, 255, 0.75), rgba(84, 123, 255, 0.6), rgba(191, 112, 255, 0.75), rgba(255, 141, 184, 0.65)) border-box;
-    transition: scale 0.4s ease;
-}
-
-.hero-photo::after {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    z-index: -2;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #70e1ff, #547bff 42%, #bf70ff 73%, #ff8db8);
-    filter: blur(20px);
-    opacity: 0.3;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
 }
 
 .hero-photo:hover {
     scale: 1.03;
-    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.48), 0 0 38px var(--blue-glow-mid);
-}
-
-.hero-photo:hover::before {
-    scale: 1.05;
-}
-
-.hero-photo:hover::after {
-    opacity: 0.4;
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.42);
 }
 
 .hero-photo img {
@@ -1206,6 +1170,30 @@ body:not(.home-page) {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    border-radius: 50%;
+}
+
+/* Keep the original photo markup at a fixed size if a page has not been updated yet. */
+.hero > .hero-photo {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: clamp(140px, 18vw, 200px);
+    height: clamp(140px, 18vw, 200px);
+    flex: 0 0 clamp(140px, 18vw, 200px);
+    max-width: 100%;
+    padding: 4px;
+    transform: none;
+    border: 1px solid rgba(226, 232, 240, 0.72);
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+}
+
+.hero > .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 50%;
 }
 
@@ -1227,18 +1215,13 @@ body:not(.home-page) {
     top: -1px;
     left: 50%;
     display: grid;
-    width: 44px;
-    height: 44px;
     place-items: center;
     transform: translateX(-50%);
-    border: 1px solid rgba(255, 255, 255, 0.32);
-    border-radius: 50%;
-    background: rgba(8, 17, 31, 0.96);
     color: #e2e8f0;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 800;
     letter-spacing: -0.04em;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.38);
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
     animation: tech-orbit-counter 25s linear infinite;
 }
 
@@ -1282,6 +1265,12 @@ body:not(.home-page) {
         height: calc(var(--photo-size) + 64px);
         flex-basis: calc(var(--photo-size) + 64px);
     }
+
+    .hero > .hero-photo {
+        width: min(160px, 44vw);
+        height: min(160px, 44vw);
+        flex-basis: min(160px, 44vw);
+    }
 }
 
 @media (max-width: 400px) {
@@ -1290,6 +1279,12 @@ body:not(.home-page) {
         width: calc(var(--photo-size) + 64px);
         height: calc(var(--photo-size) + 64px);
         flex-basis: calc(var(--photo-size) + 64px);
+    }
+
+    .hero > .hero-photo {
+        width: min(140px, 44vw);
+        height: min(140px, 44vw);
+        flex-basis: min(140px, 44vw);
     }
 }
 
