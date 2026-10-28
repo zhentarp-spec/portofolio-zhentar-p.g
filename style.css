@@ -1124,11 +1124,13 @@ body:not(.home-page) {
 
 /* Foto bulat dengan orbit ikon teknologi pada halaman selain beranda */
 .hero-photo-wrap {
+    --photo-size: clamp(220px, 25vw, 280px);
     position: relative;
     isolation: isolate;
-    width: clamp(280px, 30vw, 340px);
-    height: clamp(280px, 30vw, 340px);
-    flex: 0 0 clamp(280px, 30vw, 340px);
+    width: var(--photo-size);
+    height: var(--photo-size);
+    flex: 0 0 var(--photo-size);
+    max-width: 100%;
     animation: fadeUp 1s ease 0.3s both;
 }
 
@@ -1145,8 +1147,8 @@ body:not(.home-page) {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 74%;
-    height: 74%;
+    width: 72%;
+    height: 72%;
     padding: 7px;
     overflow: visible;
     transform: translate(-50%, -50%);
@@ -1275,9 +1277,16 @@ body:not(.home-page) {
 
 @media (max-width: 900px) {
     .hero-photo-wrap {
-        width: min(340px, 82vw);
-        height: min(340px, 82vw);
-        flex-basis: min(340px, 82vw);
+        --photo-size: min(240px, 72vw);
+        width: var(--photo-size);
+        height: var(--photo-size);
+        flex-basis: var(--photo-size);
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-photo-wrap {
+        --photo-size: min(210px, 68vw);
     }
 }
 
