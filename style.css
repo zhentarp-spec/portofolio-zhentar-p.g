@@ -1088,29 +1088,46 @@ main > .marquee:first-child {
    BACKGROUND FOTO — HANYA UNTUK INDEX (body.home-page)
    ============================================================ */
 
-/* Index: hitam polos di belakang gambar */
+/* Index: background hitam polos, lalu gambar di bagian atas */
 body.home-page {
     background-color: #000000;
     background-image: none;
+    position: relative;
 }
 
-/* Gambar latar hanya muncul di index */
 body.home-page::before {
     content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100vh;
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.65)),
-        url("./Helmeted%20Varsity%20Jacket%20Sketch%20(1).png");
-    background-size: 100% 100%, 50vw auto;
-    background-position: center, center 10%;
+    z-index: -2;
+    background-image: url("./Helmeted%20Varsity%20Jacket%20Sketch%20(1).png");
+    background-size: cover;
+    background-position: center top;
     background-repeat: no-repeat;
     pointer-events: none;
 }
 
-/* Halaman lain: gradient hitam-biru-putih, tanpa gambar */
+body.home-page::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.55) 0%,
+        rgba(0, 0, 0, 0.30) 40%,
+        rgba(0, 0, 0, 0.85) 80%,
+        #000000 100%
+    );
+    pointer-events: none;
+}
+
 body:not(.home-page) {
     background-color: #000000;
     background-image: radial-gradient(
@@ -1294,66 +1311,4 @@ body:not(.home-page) {
     .tech-orbit-icon {
         animation: none;
     }
-}
-/* ============================================================
-   BACKGROUND FOTO — HANYA INDEX
-   Hanya menutupi BAGIAN ATAS web (tidak fixed, ikut scroll)
-   ============================================================ */
-
-/* Index: hitam polos di belakang */
-body.home-page {
-    background-color: #000000;
-    background-image: none;
-    position: relative;          /* ✅ supaya ::before/::after bisa absolute */
-}
-
-/* Foto latar hanya di bagian atas */
-body.home-page::before {
-    content: "";
-    position: absolute;           /* ✅ BUKAN fixed — ikut scroll */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;                /* setinggi 1 layar, lalu berhenti */
-    z-index: -2;
-
-    background-image: url("./Helmeted%20Varsity%20Jacket%20Sketch%20(1).png");
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-
-    pointer-events: none;
-}
-
-/* Overlay gradient — juga absolute, hanya setinggi 100vh */
-body.home-page::after {
-    content: "";
-    position: absolute;           /* ✅ BUKAN fixed */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: -1;
-
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.55) 0%,
-        rgba(0, 0, 0, 0.30) 40%,
-        rgba(0, 0, 0, 0.85) 80%,
-        #000000 100%
-    );
-
-    pointer-events: none;
-}
-
-/* Halaman lain: gradient hitam-biru-putih, tanpa gambar */
-body:not(.home-page) {
-    background-color: #000000;
-    background-image: radial-gradient(
-        circle at 65% 30%,
-        #12233d 0%,
-        #070d16 45%,
-        #000000 80%
-    );
-    background-attachment: fixed;
 }

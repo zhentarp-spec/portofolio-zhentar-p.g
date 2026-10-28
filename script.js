@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     initTechIcons();
+    initTechOrbit();
     initScrollReveal();
     initParallaxGlow();
     initProfileHover();
@@ -49,6 +50,38 @@ function initTechIcons() {
         }, { passive: true });
 
         visual.appendChild(el);
+    });
+}
+
+function initTechOrbit() {
+    document.querySelectorAll('.hero-photo-wrap').forEach((wrap) => {
+        if (wrap.querySelector('.tech-orbit')) return;
+
+        const orbit = document.createElement('div');
+        orbit.className = 'tech-orbit';
+        orbit.setAttribute('role', 'img');
+        orbit.setAttribute('aria-label', 'Ikon HTML, CSS, JavaScript, Python, dan PHP');
+
+        const icons = [
+            { cls: 'html-icon', label: '<>' },
+            { cls: 'css-icon', label: '#' },
+            { cls: 'js-icon', label: 'JS' },
+            { cls: 'python-icon', label: 'Py' },
+            { cls: 'php-icon', label: 'php' }
+        ];
+
+        icons.forEach(({ cls, label }) => {
+            const item = document.createElement('span');
+            item.className = 'tech-orbit-item';
+
+            const icon = document.createElement('span');
+            icon.className = `tech-orbit-icon ${cls}`;
+            icon.textContent = label;
+            item.appendChild(icon);
+            orbit.appendChild(item);
+        });
+
+        wrap.appendChild(orbit);
     });
 }
 
