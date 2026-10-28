@@ -536,29 +536,31 @@ img {
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
+    gap: 1.25rem;
     margin-top: 1.5rem;
 }
 
 .gallery img {
     width: 100%;
     height: auto;
-    aspect-ratio: 2 / 3;
+    aspect-ratio: 1;
     object-fit: cover;
-    background: rgba(0, 0, 0, 0.35);
-    border-radius: 12px;
-    border: 1px solid var(--blue-line);
-    transition: 0.4s ease;
-    filter: grayscale(0%) contrast(112%) brightness(1.08) saturate(1.15);
+    padding: 6px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    background:
+        linear-gradient(#08111f, #08111f) padding-box,
+        linear-gradient(135deg, #70e1ff, #547bff 45%, #bf70ff 75%, #ff8db8) border-box;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35), 0 0 20px rgba(102, 143, 255, 0.2);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    filter: contrast(1.06) saturate(1.08);
 }
 
 .gallery img:hover {
-    transform: scale(1.03);
-    border-color: var(--blue-accent);
-    filter: grayscale(0%) contrast(118%) brightness(1.15) saturate(1.25);
+    transform: translateY(-7px) scale(1.02);
     box-shadow:
-        0 0 25px var(--blue-glow-strong),
-        0 0 60px var(--blue-glow-mid);
+        0 20px 38px rgba(0, 0, 0, 0.45),
+        0 0 30px rgba(128, 115, 255, 0.38);
 }
 
 /* ============================================
@@ -1120,16 +1122,79 @@ body:not(.home-page) {
     background-attachment: fixed;
 }
 
-/* Foto persegi pada bagian pembuka halaman selain beranda */
-.hero-photo {
-    width: clamp(220px, 30vw, 340px);
-    height: clamp(220px, 30vw, 340px);
+/* Foto bulat dengan orbit ikon teknologi pada halaman selain beranda */
+.hero-photo-wrap {
+    position: relative;
+    isolation: isolate;
+    width: clamp(280px, 30vw, 340px);
+    aspect-ratio: 1;
     flex-shrink: 0;
-    padding: 8px;
-    border: 1px solid var(--blue-line);
-    background: linear-gradient(145deg, rgba(31, 111, 235, 0.28), rgba(6, 10, 18, 0.9));
-    box-shadow: 0 0 28px var(--blue-glow-soft);
     animation: fadeUp 1s ease 0.3s both;
+}
+
+.hero-photo-wrap::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    z-index: -1;
+    border: 1px dashed rgba(121, 192, 255, 0.42);
+    border-radius: 50%;
+}
+
+.hero-photo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 74%;
+    aspect-ratio: 1;
+    padding: 7px;
+    transform: translate(-50%, -50%);
+    border: 2px solid transparent;
+    border-radius: 50%;
+    background:
+        linear-gradient(145deg, #08111f, #10152a) padding-box,
+        linear-gradient(135deg, #70e1ff 0%, #547bff 42%, #bf70ff 73%, #ff8db8 100%) border-box;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42), 0 0 30px rgba(102, 143, 255, 0.26);
+    transition: box-shadow 0.4s ease, scale 0.4s ease;
+}
+
+.hero-photo::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    z-index: -1;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background:
+        linear-gradient(#080d18, #080d18) padding-box,
+        linear-gradient(135deg, rgba(112, 225, 255, 0.75), rgba(84, 123, 255, 0.6), rgba(191, 112, 255, 0.75), rgba(255, 141, 184, 0.65)) border-box;
+    transition: scale 0.4s ease;
+}
+
+.hero-photo::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: -2;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #70e1ff, #547bff 42%, #bf70ff 73%, #ff8db8);
+    filter: blur(20px);
+    opacity: 0.3;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.hero-photo:hover {
+    scale: 1.03;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.48), 0 0 38px var(--blue-glow-mid);
+}
+
+.hero-photo:hover::before {
+    scale: 1.05;
+}
+
+.hero-photo:hover::after {
+    opacity: 0.4;
 }
 
 .hero-photo img {
@@ -1138,12 +1203,86 @@ body:not(.home-page) {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    border-radius: 50%;
+}
+
+.tech-orbit {
+    position: absolute;
+    inset: 12px;
+    border-radius: 50%;
+}
+
+.tech-orbit-item {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    animation: tech-orbit-spin 25s linear infinite;
+}
+
+.tech-orbit-icon {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    transform: translateX(-50%);
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    border-radius: 50%;
+    background: rgba(8, 17, 31, 0.96);
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.38);
+    animation: tech-orbit-counter 25s linear infinite;
+}
+
+.php-icon {
+    font-size: 0.75rem;
+    font-style: italic;
+}
+
+.tech-orbit-item:nth-child(2),
+.tech-orbit-item:nth-child(2) .tech-orbit-icon {
+    animation-delay: -5s;
+}
+
+.tech-orbit-item:nth-child(3),
+.tech-orbit-item:nth-child(3) .tech-orbit-icon {
+    animation-delay: -10s;
+}
+
+.tech-orbit-item:nth-child(4),
+.tech-orbit-item:nth-child(4) .tech-orbit-icon {
+    animation-delay: -15s;
+}
+
+.tech-orbit-item:nth-child(5),
+.tech-orbit-item:nth-child(5) .tech-orbit-icon {
+    animation-delay: -20s;
+}
+
+@keyframes tech-orbit-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes tech-orbit-counter {
+    to { rotate: -360deg; }
 }
 
 @media (max-width: 900px) {
-    .hero-photo {
-        width: min(320px, 78vw);
-        height: min(320px, 78vw);
+    .hero-photo-wrap {
+        width: min(340px, 82vw);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-photo-wrap,
+    .tech-orbit-item,
+    .tech-orbit-icon {
+        animation: none;
     }
 }
 /* ============================================================
