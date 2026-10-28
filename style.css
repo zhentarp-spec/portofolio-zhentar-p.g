@@ -176,8 +176,8 @@ img {
    ============================================ */
 .hero-visual {
     position: relative;
-    width: 460px;
-    height: 460px;
+    width: clamp(220px, 35vw, 460px);
+    aspect-ratio: 1 / 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -186,49 +186,62 @@ img {
 }
 
 .profile-glow {
-    width: 260px;
-    height: 260px;
+    width: clamp(170px, 28vw, 260px);
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     display: grid;
     place-items: center;
     background: radial-gradient(circle at 30% 30%, #1b2b4a, #0d1626 60%, #060a12);
-    border: 1px solid var(--blue-line);
+    border: 1px solid rgba(121, 192, 255, 0.28);
     box-shadow:
-        0 0 20px var(--blue-glow-mid),
-        0 0 50px var(--blue-glow-soft),
-        0 0 100px rgba(31, 111, 235, 0.15);
+        0 0 18px rgba(56, 139, 253, 0.18),
+        0 0 35px rgba(56, 139, 253, 0.10),
+        0 0 70px rgba(31, 111, 235, 0.08);
     animation: float 5s ease-in-out infinite;
     position: relative;
     transform: translate3d(var(--mx, 0), var(--my, 0), 0);
     transition: transform 0.2s ease-out;
 }
 
+.profile-glow::before {
+    content: "";
+    position: absolute;
+    inset: -12%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(121, 192, 255, 0.17), transparent 62%);
+    filter: blur(22px);
+    z-index: -1;
+    opacity: 0.9;
+}
+
 .profile-glow:hover {
     animation-play-state: paused;
     box-shadow:
-        0 0 40px var(--blue-glow-strong),
-        0 0 90px var(--blue-glow-mid),
-        0 0 150px var(--blue-glow-soft);
+        0 0 26px rgba(88, 166, 255, 0.22),
+        0 0 50px rgba(88, 166, 255, 0.14),
+        0 0 90px rgba(31, 111, 235, 0.10);
 }
 
 .profile-frame {
-    width: 220px;
-    height: 220px;
+    width: clamp(150px, 24vw, 220px);
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid var(--blue-accent);
+    border: 3px solid rgba(121, 192, 255, 0.9);
     box-shadow:
-        0 0 20px var(--blue-glow-strong),
-        0 10px 30px rgba(0, 0, 0, 0.7);
+        0 0 18px rgba(121, 192, 255, 0.35),
+        0 0 28px rgba(88, 166, 255, 0.16),
+        0 12px 24px rgba(0, 0, 0, 0.55);
     position: relative;
     transition: all 0.4s ease;
+    background: #0a1220;
 }
 
 .profile-frame:hover {
     box-shadow:
-        0 0 25px rgba(121, 192, 255, 0.8),
-        0 0 50px rgba(121, 192, 255, 0.3),
-        0 10px 30px rgba(0, 0, 0, 0.8);
+        0 0 24px rgba(121, 192, 255, 0.5),
+        0 0 38px rgba(121, 192, 255, 0.22),
+        0 12px 30px rgba(0, 0, 0, 0.7);
 }
 
 .profile-frame img {
@@ -247,11 +260,11 @@ img {
     inset: 0;
     border-radius: inherit;
     background:
-        radial-gradient(circle at 30% 25%, rgba(88, 166, 255, 0.35), transparent 55%),
-        radial-gradient(circle at 75% 80%, rgba(31, 111, 235, 0.25), transparent 60%);
+        radial-gradient(circle at 30% 25%, rgba(88, 166, 255, 0.28), transparent 52%),
+        radial-gradient(circle at 75% 80%, rgba(31, 111, 235, 0.18), transparent 60%);
     mix-blend-mode: screen;
     pointer-events: none;
-    opacity: 0.7; 
+    opacity: 0.75;
     transition: opacity 0.4s ease;
 }
 
@@ -260,7 +273,7 @@ img {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    box-shadow: inset 0 0 20px rgba(88, 166, 255, 0.4);
+    box-shadow: inset 0 0 18px rgba(88, 166, 255, 0.28);
     pointer-events: none;
     z-index: 2;
 }
@@ -274,6 +287,147 @@ img {
     opacity: 1;
 }
 
+/* ============================================
+   RESPONSIVE (GABUNGAN & FIX)
+   ============================================ */
+@media (max-width: 900px) {
+    .site-header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .site-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 3rem 5%;
+    }
+
+    .hero-text h1 {
+        font-size: 2.3rem;
+    }
+
+    .hero-visual {
+        width: clamp(240px, 60vw, 380px);
+        height: clamp(240px, 60vw, 380px);
+        margin-bottom: 2rem;
+    }
+
+    .profile-glow {
+        width: clamp(180px, 52vw, 260px);
+        height: clamp(180px, 52vw, 260px);
+    }
+
+    .profile-frame {
+        width: clamp(150px, 44vw, 220px);
+        height: clamp(150px, 44vw, 220px);
+    }
+
+    .project-section {
+        margin: 2.5rem 5%;
+        padding: 1.8rem;
+    }
+
+    .project-showcase img {
+        max-height: 280px;
+    }
+
+    .project-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .card {
+        margin: 1.5rem 5%;
+        padding: 1.8rem;
+    }
+
+    .data-item {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .tech-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 0.78rem;
+        border-radius: 14px;
+    }
+    .tech-icon.html  { top: 4%;    left: 4%; }
+    .tech-icon.js    { top: 0%;    right: 6%; }
+    .tech-icon.css   { top: 46%;   left: -4%; }
+    .tech-icon.react { top: 42%;   right: -4%; }
+    .tech-icon.node  { bottom: 6%; left: 6%; }
+    .tech-icon.figma { bottom: 2%; right: 10%; }
+}
+
+@media (max-width: 500px) {
+    .hero-visual {
+        width: clamp(200px, 72vw, 320px);
+        height: clamp(200px, 72vw, 320px);
+    }
+
+    .profile-glow {
+        width: clamp(150px, 50vw, 200px);
+        height: clamp(150px, 50vw, 200px);
+    }
+
+    .profile-frame {
+        width: clamp(125px, 42vw, 170px);
+        height: clamp(125px, 42vw, 170px);
+    }
+
+    .tech-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 0.7rem;
+        border-radius: 12px;
+    }
+    .tech-icon.html  { top: 2%;    left: 2%; }
+    .tech-icon.js    { top: -2%;   right: 4%; }
+    .tech-icon.css   { top: 46%;   left: -6%; }
+    .tech-icon.react { top: 42%;   right: -6%; }
+    .tech-icon.node  { bottom: 4%; left: 4%; }
+    .tech-icon.figma { bottom: 0%; right: 8%; }
+}
+
+@media (max-width: 480px) {
+    .profile-glow {
+        width: 200px;
+        height: 200px;
+    }
+
+    .profile-frame {
+        width: 170px;
+        height: 170px;
+    }
+
+    .project-section {
+        padding: 1.5rem;
+    }
+
+    .project-frame {
+        width: 240px;
+    }
+
+    .project-frame img {
+        height: 150px;
+    }
+
+    .chart-label {
+        width: 90px;
+        font-size: 12px;
+    }
+
+    .chart-bar {
+        height: 22px;
+    }
+}
 /* ============================================
    PROJECT SECTION — FOTO SEKOLAH
    ============================================ */
