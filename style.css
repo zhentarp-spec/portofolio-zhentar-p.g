@@ -1124,12 +1124,12 @@ body:not(.home-page) {
 
 /* Foto bulat dengan orbit ikon teknologi pada halaman selain beranda */
 .hero-photo-wrap {
-    --photo-size: clamp(220px, 25vw, 280px);
+    --photo-size: clamp(150px, 18vw, 200px);
     position: relative;
     isolation: isolate;
-    width: var(--photo-size);
-    height: var(--photo-size);
-    flex: 0 0 var(--photo-size);
+    width: calc(var(--photo-size) + 64px);
+    height: calc(var(--photo-size) + 64px);
+    flex: 0 0 calc(var(--photo-size) + 64px);
     max-width: 100%;
     animation: fadeUp 1s ease 0.3s both;
 }
@@ -1147,8 +1147,8 @@ body:not(.home-page) {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 72%;
-    height: 72%;
+    width: var(--photo-size);
+    height: var(--photo-size);
     padding: 7px;
     overflow: visible;
     transform: translate(-50%, -50%);
@@ -1277,16 +1277,19 @@ body:not(.home-page) {
 
 @media (max-width: 900px) {
     .hero-photo-wrap {
-        --photo-size: min(240px, 72vw);
-        width: var(--photo-size);
-        height: var(--photo-size);
-        flex-basis: var(--photo-size);
+        --photo-size: min(160px, 44vw);
+        width: calc(var(--photo-size) + 64px);
+        height: calc(var(--photo-size) + 64px);
+        flex-basis: calc(var(--photo-size) + 64px);
     }
 }
 
 @media (max-width: 400px) {
     .hero-photo-wrap {
-        --photo-size: min(210px, 68vw);
+        --photo-size: min(140px, 44vw);
+        width: calc(var(--photo-size) + 64px);
+        height: calc(var(--photo-size) + 64px);
+        flex-basis: calc(var(--photo-size) + 64px);
     }
 }
 
